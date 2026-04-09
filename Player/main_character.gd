@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 200.0
 
 # @onready ładuje odwołanie do animacji zaraz po uruchomieniu sceny.
 # Upewnij się, że nazwa po znaku $ jest identyczna jak w drzewie sceny!
