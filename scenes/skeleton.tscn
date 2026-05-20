@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://do0rwrulvp5a3"]
+
+[ext_resource type="Texture2D" uid="uid://c8hy5e0sfiulk" path="res://Skeleton/Walk.png" id="1_pbvs3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txkty"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivqcw"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnirc"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgwy"]
+atlas = ExtResource("1_pbvs3")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssl1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txkty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivqcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnirc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pgwy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4hcs"]
+size = Vector2(14, 14.5)
+
+[node name="Skeleton" type="RigidBody2D" unique_id=843535774]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2024943795]
+texture_filter = 1
+position = Vector2(2, 1.069767)
+scale = Vector2(1.25, 1.133721)
+sprite_frames = SubResource("SpriteFrames_ssl1b")
+autoplay = "default"
+frame_progress = 0.41064808
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879536104]
+position = Vector2(3, 2.75)
+shape = SubResource("RectangleShape2D_w4hcs")
