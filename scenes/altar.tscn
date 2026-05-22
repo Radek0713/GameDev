@@ -1502,5 +1502,6 @@ tile_map_data = PackedByteArray("AADr/z0AAAAQAAwAAADr/z4AAAAQAA0AAADs/z0AAAARAAw
 tile_set = SubResource("TileSet_lswn8")
 
 [node name="AltarShape" type="CollisionShape2D" parent="." unique_id=1271642026]
+visible = false
 position = Vector2(-320, 913.5)
 shape = SubResource("RectangleShape2D_00bwv")
