@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://7q6vvupy4i03"]
 
+[ext_resource type="Script" uid="uid://bc7yd7ui8054g" path="res://scenes/enemies/dragon.gd" id="1_7cpjs"]
 [ext_resource type="Texture2D" uid="uid://dyf45lvxwnyvd" path="res://Enemies/Dragon/SpriteSheet.png" id="1_vfigm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
@@ -137,10 +138,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lswn8"]
-radius = 10.049875
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ankng"]
 
 [node name="Dragon" type="CharacterBody2D" unique_id=634971505]
+collision_layer = 2
+script = ExtResource("1_7cpjs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085735162]
 sprite_frames = SubResource("SpriteFrames_0odxb")
@@ -148,4 +150,4 @@ animation = &"walk_right"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376652676]
-shape = SubResource("CircleShape2D_lswn8")
+shape = SubResource("RectangleShape2D_ankng")

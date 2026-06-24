@@ -138,9 +138,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6ob8f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ptvr"]
 
 [node name="Cyclop" type="CharacterBody2D" unique_id=1590780914]
+collision_layer = 2
 script = ExtResource("1_0ptvr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=773620139]
@@ -150,4 +151,4 @@ animation = &"walk_up"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302600010]
-shape = SubResource("CircleShape2D_6ob8f")
+shape = SubResource("RectangleShape2D_0ptvr")

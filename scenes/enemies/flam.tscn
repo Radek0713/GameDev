@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1leanrunlk3s"]
 
 [ext_resource type="Texture2D" uid="uid://dw70g8eh3c3vh" path="res://Enemies/Flam/SpriteSheet.png" id="1_8sddj"]
+[ext_resource type="Script" uid="uid://dtuybwfdyu006" path="res://scenes/enemies/flam.gd" id="1_vsn5r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
 atlas = ExtResource("1_8sddj")
@@ -137,9 +138,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lswn8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36str"]
 
 [node name="Flam" type="CharacterBody2D" unique_id=1758902041]
+collision_layer = 2
+script = ExtResource("1_vsn5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1639470642]
 sprite_frames = SubResource("SpriteFrames_0odxb")
@@ -147,4 +150,4 @@ animation = &"walk_up"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619714949]
-shape = SubResource("CircleShape2D_lswn8")
+shape = SubResource("RectangleShape2D_36str")

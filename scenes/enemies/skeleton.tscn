@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://do0rwrulvp5a3"]
 
+[ext_resource type="Script" uid="uid://7iyx5gl3g3ta" path="res://scenes/enemies/skeleton.gd" id="1_5365w"]
 [ext_resource type="Texture2D" uid="uid://c8hy5e0sfiulk" path="res://Enemies/Skeleton/Walk.png" id="1_pbvs3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txkty"]
@@ -137,10 +138,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pbvs3"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo8vp"]
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=1624081400]
+collision_layer = 2
+script = ExtResource("1_5365w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2024943795]
 texture_filter = 1
@@ -152,4 +154,4 @@ autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879536104]
 position = Vector2(3, 3)
-shape = SubResource("CircleShape2D_pbvs3")
+shape = SubResource("RectangleShape2D_uo8vp")
