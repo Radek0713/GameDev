@@ -150,6 +150,7 @@ position = Vector2(80, 80)
 scale = Vector2(1, 1.08)
 sprite_frames = SubResource("SpriteFrames_x2fhn")
 animation = &"walk_down"
+autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1036669526]
 position = Vector2(80, 85)

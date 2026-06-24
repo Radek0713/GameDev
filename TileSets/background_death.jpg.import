@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hy5e0sfiulk"
-path="res://.godot/imported/Walk.png-c90c29a043ad71096d64efdf8a5cecf2.ctex"
+uid="uid://dpb6apy7leb63"
+path="res://.godot/imported/background_death.jpg-a6db58992bd21b9b186383cbbd65605e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Skeleton/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-c90c29a043ad71096d64efdf8a5cecf2.ctex"]
+source_file="res://TileSets/background_death.jpg"
+dest_files=["res://.godot/imported/background_death.jpg-a6db58992bd21b9b186383cbbd65605e.ctex"]
 
 [params]
 

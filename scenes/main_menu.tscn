@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://bkdnaux68v2p4"]
+
+[ext_resource type="Script" uid="uid://b6neelspdwexl" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://d2ca845ejsu1e" path="res://TileSets/background_wood.jpg" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=1942782531]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Background" type="TextureRect" parent="." unique_id=464994354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuLabel" type="Label" parent="." unique_id=469936739]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -573.5
+offset_top = 55.0
+offset_right = 573.5
+offset_bottom = 405.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.65882355)
+theme_override_font_sizes/font_size = 160
+text = "BRAVE KNIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=2071236692]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="HowToPlayButton" type="Button" parent="MenuButtons" unique_id=282903270]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "How to play"
+
+[node name="ControlsButton" type="Button" parent="MenuButtons" unique_id=398073360]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Controls"
+
+[node name="PlayButton" type="Button" parent="MenuButtons" unique_id=289915403]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="MenuButtons" unique_id=1260095362]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="StoryPanel" type="Panel" parent="." unique_id=1764282670]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="StoryPanel" unique_id=255385822]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Welcome to Brave Knight!
+
+In this game, you will navigate the Knight through different lands and fight the enemies.
+In the world, you will find following things:
+
+Coins - used to buy items in the starting village.
+
+Enemies - each biome has different monsters. After defeated, thay can drop coins, Relics and Totems.
+
+Altars - there are 3 in the world, each with unique buffs: speed, damage or HP.
+	Originally, you can acquire buff from only one altar at time. If you try activating second altar, the first one will be shut off.
+	Later in the game, as you collect totems, more altars can be activated at the same time.
+
+Relics - used to upgrade your sword. In your starting village, you can spend one, pay coins and your sword will be upgraded by one level.
+	Each Relic is single-use.
+
+Totems - each biome has unique Totem, which can be dropped by monsters from that biome. By picking up unique Totems,
+	you will be able to activate more altars at the same time. If you collect all Totems, final boss will be summoned.
+	Defeat him to earn eternal glory! Good luck!"
+vertical_alignment = 1
+
+[node name="CloseStoryButton" type="Button" parent="StoryPanel" unique_id=442667551]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -80.0
+offset_right = 75.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="ControlsPanel" type="Panel" parent="." unique_id=1913447085]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ControlsPanel" unique_id=1521990575]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Controls:
+
+WSAD - movement
+E - interact (activate altar, trade in village)
+Space - attack"
+vertical_alignment = 1
+
+[node name="CloseControlsButton" type="Button" parent="ControlsPanel" unique_id=1903514972]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -80.0
+offset_right = 75.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Back"

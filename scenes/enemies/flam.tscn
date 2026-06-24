@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://1leanrunlk3s"]
+
+[ext_resource type="Texture2D" uid="uid://dw70g8eh3c3vh" path="res://Enemies/Flam/SpriteSheet.png" id="1_8sddj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36str"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsn5r"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmqyo"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foqog"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_notw1"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pic3"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke0qh"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05hcl"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyugr"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp8dk"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clcy1"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r3gi"]
+atlas = ExtResource("1_8sddj")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0odxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_getpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryguw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d13ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8w0")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36str")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsn5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmqyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foqog")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_notw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pic3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke0qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05hcl")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyugr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp8dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clcy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r3gi")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lswn8"]
+
+[node name="Flam" type="CharacterBody2D" unique_id=1758902041]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1639470642]
+sprite_frames = SubResource("SpriteFrames_0odxb")
+animation = &"walk_up"
+autoplay = "walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619714949]
+shape = SubResource("CircleShape2D_lswn8")

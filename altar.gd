@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 
 # Aktualizuje wygląd ołtarza na podstawie danych z GameManager
 func update_visuals() -> void:
-	if game_manager.active_buff == buff_type:
+	# Sprawdzamy, czy nasz typ ołtarza znajduje się w liście aktywnych ołtarzy
+	if game_manager.active_buffs_list.has(buff_type):
 		$SpriteOn.show()
-		# SpriteOff zostaje zawsze włączony, zgodnie z Twoim planem
 	else:
 		$SpriteOn.hide()

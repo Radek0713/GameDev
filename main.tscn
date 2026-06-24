@@ -9,15 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://bjrs31j22r71x" path="res://TileSets/TX Props.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dquvng8a7lw" path="res://TileSets/TilesetFloorDetail.png" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cej5vsk1ktx6q" path="res://TileSets/TilesetField.png" id="6_vivmo"]
-[ext_resource type="PackedScene" uid="uid://c2tynk5lbdpl3" path="res://scenes/coin.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://c2tynk5lbdpl3" path="res://scenes/items/coin.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://d2unvnl4tm6m8" path="res://TileSets/TilesetVillageAbandoned.png" id="8_4c57u"]
 [ext_resource type="Script" uid="uid://dvh82h2tvupy7" path="res://game_manager.gd" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bwpybw4ghs2vo" path="res://TileSets/TilesetReliefDetail.png" id="11_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://oq6skny01vsd" path="res://TileSets/TilesetRelief.png" id="12_yaehf"]
 [ext_resource type="Texture2D" uid="uid://uxox2i0yg2iu" path="res://TileSets/TilesetHouse.png" id="13_074og"]
 [ext_resource type="Texture2D" uid="uid://dav6l0h0yonrn" path="res://Player/IconHeart.png" id="15_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://do0rwrulvp5a3" path="res://scenes/skeleton.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://do0rwrulvp5a3" path="res://scenes/enemies/skeleton.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://3nla64j6nmh7" path="res://scenes/altar.tscn" id="18_074og"]
+[ext_resource type="PackedScene" uid="uid://c4np3tyc5t7mt" path="res://scenes/enemies/cyclop.tscn" id="19_cegan"]
+[ext_resource type="PackedScene" uid="uid://7q6vvupy4i03" path="res://scenes/enemies/dragon.tscn" id="20_getpj"]
+[ext_resource type="PackedScene" uid="uid://1leanrunlk3s" path="res://scenes/enemies/flam.tscn" id="21_ryguw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("1_h2yge")
@@ -2532,10 +2535,13 @@ texture = ExtResource("8_4c57u")
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
 9:3/0 = 0
 10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:3/0 = 0
 12:3/0 = 0
 13:3/0 = 0
@@ -2564,7 +2570,9 @@ texture = ExtResource("8_4c57u")
 5:4/0 = 0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:4/0 = 0
 9:4/0 = 0
 10:4/0 = 0
@@ -2597,9 +2605,13 @@ texture = ExtResource("8_4c57u")
 4:5/0 = 0
 5:5/0 = 0
 7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:5/0 = 0
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:5/0 = 0
+9:5/0/z_index = 10
 10:5/0 = 0
+10:5/0/z_index = 10
 11:5/0 = 0
 11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:5/0 = 0
@@ -2619,9 +2631,13 @@ texture = ExtResource("8_4c57u")
 6:6/0 = 0
 6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:6/0 = 0
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:6/0 = 0
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:6/0 = 0
+10:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:6/0 = 0
 12:6/0 = 0
 13:6/0 = 0
@@ -5598,10 +5614,10 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7566.0
-offset_top = -5657.0
-offset_right = 10033.0
-offset_bottom = 5989.0
+offset_left = -7753.0
+offset_top = -6076.0
+offset_right = 9846.0
+offset_bottom = 5570.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -5630,10 +5646,10 @@ position = Vector2(266, 262)
 [node name="UI" type="CanvasLayer" parent="." unique_id=178115214]
 
 [node name="PanelCoins" type="Panel" parent="UI" unique_id=1559901242]
-offset_left = 16.0
-offset_top = 16.0
+offset_left = 15.0
+offset_top = 15.0
 offset_right = 145.0
-offset_bottom = 69.0
+offset_bottom = 65.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CoinsLabel" type="Label" parent="UI/PanelCoins" unique_id=1281592886]
@@ -5646,6 +5662,65 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 21
 text = "Coins: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelSword" type="Panel" parent="UI" unique_id=1249251667]
+offset_left = 15.0
+offset_top = 75.0
+offset_right = 145.0
+offset_bottom = 125.0
+
+[node name="SwordLabel" type="Label" parent="UI/PanelSword" unique_id=1541182395]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Sword: 0/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelAltars" type="Panel" parent="UI" unique_id=1655569934]
+offset_left = 16.0
+offset_top = 135.0
+offset_right = 146.0
+offset_bottom = 185.0
+
+[node name="AltarsLabel" type="Label" parent="UI/PanelAltars" unique_id=1092956375]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Altars: 0/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelTotems" type="Panel" parent="UI" unique_id=4186088]
+offset_left = 15.0
+offset_top = 195.0
+offset_right = 145.0
+offset_bottom = 245.0
+
+[node name="TotemsLabel" type="Label" parent="UI/PanelTotems" unique_id=513880307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Totems: 0/?"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -5768,3 +5843,26 @@ buff_type = 1
 [node name="Altar3Damage" parent="Altars" unique_id=1764994173 instance=ExtResource("18_074og")]
 position = Vector2(7984, -912)
 buff_type = 2
+
+[node name="Cyclops" type="Node" parent="." unique_id=1836681098]
+
+[node name="Cyclop" parent="Cyclops" unique_id=1156237240 instance=ExtResource("19_cegan")]
+position = Vector2(5920, 4034)
+
+[node name="Cyclop2" parent="Cyclops" unique_id=257314237 instance=ExtResource("19_cegan")]
+position = Vector2(6284, 4096)
+
+[node name="Cyclop3" parent="Cyclops" unique_id=307213370 instance=ExtResource("19_cegan")]
+position = Vector2(6812, 3919)
+
+[node name="Cyclop4" parent="Cyclops" unique_id=180313426 instance=ExtResource("19_cegan")]
+position = Vector2(-335, 1129)
+
+[node name="Skeleton" parent="." unique_id=1624081400 instance=ExtResource("17_yaehf")]
+position = Vector2(-307, 1128)
+
+[node name="Dragon" parent="." unique_id=634971505 instance=ExtResource("20_getpj")]
+position = Vector2(-367, 1129)
+
+[node name="Flam" parent="." unique_id=1758902041 instance=ExtResource("21_ryguw")]
+position = Vector2(-402, 1128)
