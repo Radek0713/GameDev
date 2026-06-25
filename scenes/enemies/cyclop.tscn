@@ -139,16 +139,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ptvr"]
+size = Vector2(16, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ptvr"]
+radius = 16.0
 
 [node name="Cyclop" type="CharacterBody2D" unique_id=1590780914]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_0ptvr")
+my_totem_name = "Rock"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=773620139]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dyp7x")
-animation = &"walk_up"
+animation = &"walk_right"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302600010]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0ptvr")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1395214589]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=703125009]
+shape = SubResource("CircleShape2D_0ptvr")
+debug_color = Color(0.859375, 0.27040097, 0.20947264, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1756490202]

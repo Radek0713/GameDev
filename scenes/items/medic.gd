@@ -4,5 +4,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		queue_free()
-		game_manager.add_coin(1)
+		if body.current_hp < body.max_hp:
+			queue_free()
+			game_manager.medic_collected()
+		else:
+			pass

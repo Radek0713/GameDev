@@ -139,19 +139,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo8vp"]
+size = Vector2(17, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5365w"]
+radius = 16.0
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=1624081400]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_5365w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2024943795]
 texture_filter = 1
-position = Vector2(2, 1.069767)
 scale = Vector2(1.25, 1.133721)
 sprite_frames = SubResource("SpriteFrames_ssl1b")
-animation = &"walk_right"
+animation = &"walk_up"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879536104]
-position = Vector2(3, 3)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_uo8vp")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1108035020]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1958589769]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5365w")
+
+[node name="Timer" type="Timer" parent="." unique_id=947972462]

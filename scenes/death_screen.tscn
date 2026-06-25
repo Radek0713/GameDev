@@ -64,7 +64,7 @@ Good luck next time!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DeathButtons" type="VBoxContainer" parent="." unique_id=1418011436]
+[node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=1418011436]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -79,13 +79,13 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="MainMenuButton" type="Button" parent="DeathButtons" unique_id=569795582]
+[node name="MainMenuButton" type="Button" parent="ButtonsContainer" unique_id=569795582]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_uyutr")
 text = "Main menu"
 
-[node name="ExitButton" type="Button" parent="DeathButtons" unique_id=2061749982]
+[node name="ExitButton" type="Button" parent="ButtonsContainer" unique_id=2061749982]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_uyutr")

@@ -139,15 +139,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36str"]
+size = Vector2(16, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsn5r"]
+radius = 14.0
 
 [node name="Flam" type="CharacterBody2D" unique_id=1758902041]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_vsn5r")
+my_totem_name = "Fire"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1639470642]
 sprite_frames = SubResource("SpriteFrames_0odxb")
-animation = &"walk_up"
+animation = &"walk_left"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619714949]
 shape = SubResource("RectangleShape2D_36str")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1956073747]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=949840780]
+shape = SubResource("CircleShape2D_vsn5r")
+
+[node name="Timer" type="Timer" parent="." unique_id=1590688701]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bmonbc53h23b7"]
+
+[ext_resource type="Script" uid="uid://d3rfasxnieuuw" path="res://scenes/items/relic.gd" id="1_o3mic"]
+[ext_resource type="Texture2D" uid="uid://b0e6hild4yvjn" path="res://Items/Scroll.png" id="1_pfg6v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rl1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pfg6v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok6jj"]
+radius = 9.055386
+
+[node name="Relic" type="Area2D" unique_id=488934846]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_o3mic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1658493059]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_0rl1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94644177]
+shape = SubResource("CircleShape2D_ok6jj")

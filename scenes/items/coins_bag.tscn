@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cg0k6lndqcnq6"]
+
+[ext_resource type="Script" uid="uid://brxl0wwod45f3" path="res://scenes/items/coins_bag.gd" id="1_c25cd"]
+[ext_resource type="Texture2D" uid="uid://b0yfhgn77p6r2" path="res://Items/MoneyBag.png" id="2_v3y7c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubpfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v3y7c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqyg8"]
+radius = 13.0
+
+[node name="MoneyBag" type="Area2D" unique_id=868731595]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_c25cd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1703937078]
+sprite_frames = SubResource("SpriteFrames_ubpfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2080031215]
+shape = SubResource("CircleShape2D_lqyg8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

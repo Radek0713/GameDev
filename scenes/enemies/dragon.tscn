@@ -139,10 +139,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ankng"]
+size = Vector2(14, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7cpjs"]
+radius = 35.057095
 
 [node name="Dragon" type="CharacterBody2D" unique_id=634971505]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_7cpjs")
+my_totem_name = "Thunder"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085735162]
 sprite_frames = SubResource("SpriteFrames_0odxb")
@@ -150,4 +156,14 @@ animation = &"walk_right"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376652676]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ankng")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1573421380]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1722447946]
+shape = SubResource("CircleShape2D_7cpjs")
+
+[node name="Timer" type="Timer" parent="." unique_id=1018039838]

@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://blg531eghuaen" path="res://Player/main_character.gd" id="1_psv4h"]
 [ext_resource type="Texture2D" uid="uid://dygcfdgp5d2em" path="res://Player/Walk.png" id="2_psv4h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6idk"]
-size = Vector2(40, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjrex"]
 atlas = ExtResource("2_psv4h")
 region = Rect2(0, 0, 16, 16)
@@ -142,18 +139,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psv4h"]
-size = Vector2(8, 8)
+size = Vector2(10, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6idk"]
+radius = 25.079872
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2075032527 groups=["player"]]
-collision_mask = 2
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_psv4h")
-
-[node name="AttackArea" type="Area2D" parent="." unique_id=585299715]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1605286674]
-shape = SubResource("RectangleShape2D_b6idk")
-debug_color = Color(0.83157104, 0.37779507, 0.29123577, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1531911506]
 texture_filter = 1
@@ -163,6 +157,7 @@ animation = &"walk_down"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1036669526]
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_psv4h")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2047770589]
@@ -170,4 +165,16 @@ zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=585299715]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1605286674]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_b6idk")
+debug_color = Color(0.83157104, 0.37779507, 0.29123577, 0.41960785)
+
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1693623002]
+one_shot = true
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]

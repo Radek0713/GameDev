@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dlixxn61ygexs"]
+
+[ext_resource type="Texture2D" uid="uid://lx06hkyyhqr5" path="res://Items/Medipack.png" id="1_70j2s"]
+[ext_resource type="Script" uid="uid://bawto4ciww7dt" path="res://scenes/items/medic.gd" id="2_ocypd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d13ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_70j2s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1u8w0"]
+radius = 13.0
+
+[node name="Medic" type="Area2D" unique_id=907200397]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("2_ocypd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=760200690]
+sprite_frames = SubResource("SpriteFrames_d13ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1135744756]
+shape = SubResource("CircleShape2D_1u8w0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

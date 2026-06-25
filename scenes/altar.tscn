@@ -1491,6 +1491,7 @@ sources/0 = SubResource("TileSetAtlasSource_0odxb")
 size = Vector2(282, 183)
 
 [node name="Altar" type="Area2D" unique_id=2003267995 groups=["altars"]]
+collision_mask = 2
 script = ExtResource("1_dwhmf")
 
 [node name="SpriteOff" type="TileMapLayer" parent="." unique_id=570464874]
