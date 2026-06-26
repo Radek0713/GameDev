@@ -116,7 +116,7 @@ Relics - used to upgrade your sword. In your starting village, you can upgrade y
 
 Totems - each monster has unique Totem, which can be dropped after their death.
 	By picking up unique Totems, you will be able to activate more altars at the same time.
-	If you collect all 5 Totem, final boss will be spawned. Defeat him to earn eternal glory! Good luck!"
+	If you collect all 5 Totems, final boss will be spawned. Defeat him to earn eternal glory! Good luck!"
 vertical_alignment = 1
 
 [node name="CloseStoryButton" type="Button" parent="StoryPanel" unique_id=442667551]

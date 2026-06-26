@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-var SPEED: float = 280.0 # Wpisz tutaj swoją domyślną prędkość bazową
+var SPEED: float = 280.0
 var max_hp = 10
 var current_hp = 10
 var attack_damage = 21
 var can_attack: bool = true
-var attack_cooldown_time: float = 1.0 # Czas ładowania ataku w sekundach
+var attack_cooldown_time: float = 1.0
 
 var facing_direction = Vector2.DOWN
 
