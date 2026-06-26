@@ -7,5 +7,5 @@ func _ready() -> void:
 	#AGGRO_RANGE = 400
 	max_hp = 50        # dużo
 	damage = 1        # mało
-	attack_speed = 2
+	attack_speed = 3
 	current_hp = max_hp

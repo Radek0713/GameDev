@@ -142,13 +142,19 @@ animations = [{
 size = Vector2(14, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7cpjs"]
-radius = 35.057095
+radius = 27.018513
 
 [node name="Dragon" type="CharacterBody2D" unique_id=634971505]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_7cpjs")
+SPEED = 70.0
+AGGRO_RANGE = 800.0
+attack_speed = 3.0
+relic_drop_chance = 0.427
+totem_drop_chance = 0.525
 my_totem_name = "Thunder"
+moneybag_drop_chance = 0.179
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085735162]
 sprite_frames = SubResource("SpriteFrames_0odxb")

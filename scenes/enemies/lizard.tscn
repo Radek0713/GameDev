@@ -141,14 +141,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xl1re"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sktsb"]
-radius = 17.0
+radius = 20.024984
 
 [node name="Lizard" type="CharacterBody2D" unique_id=846262947]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_xl1re")
-relic_drop_chance = 0.838
+relic_drop_chance = 0.496
+totem_drop_chance = 0.341
 my_totem_name = "Plant"
+moneybag_drop_chance = 0.413
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1817032004]
 sprite_frames = SubResource("SpriteFrames_uypp3")
@@ -159,6 +161,8 @@ autoplay = "walk_down"
 shape = SubResource("CircleShape2D_xl1re")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=310695162]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=437173022]
 shape = SubResource("CircleShape2D_sktsb")

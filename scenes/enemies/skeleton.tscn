@@ -148,6 +148,9 @@ radius = 16.0
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_5365w")
+relic_drop_chance = 0.431
+totem_drop_chance = 0.348
+moneybag_drop_chance = 0.43
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2024943795]
 texture_filter = 1

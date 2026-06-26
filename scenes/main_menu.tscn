@@ -106,20 +106,16 @@ text = "Welcome to Brave Knight!
 In this game, you will navigate the Knight through different lands and fight the enemies.
 In the world, you will find following things:
 
-Coins - used to buy items in the starting village.
-
 Enemies - each biome has different monsters. After defeated, thay can drop coins, Relics and Totems.
 
-Altars - there are 3 in the world, each with unique buffs: speed, damage or HP.
+Altars - there are 3 in the world, each with unique buff: speed, damage or HP.
 	Originally, you can acquire buff from only one altar at time. If you try activating second altar, the first one will be shut off.
-	Later in the game, as you collect totems, more altars can be activated at the same time.
+	Later in the game, as you collect Totems, more altars can be activated at the same time.
 
-Relics - used to upgrade your sword. In your starting village, you can spend one, pay coins and your sword will be upgraded by one level.
-	Each Relic is single-use.
+Relics - used to upgrade your sword. In your starting village, you can upgrade your sword by paying 2 Relics and 10 coins to the merchant.
 
-Totems - each biome has unique Totem, which can be dropped by monsters from that biome. By picking up unique Totems,
-	you will be able to activate more altars at the same time. If you collect all Totems, final boss will be summoned.
-	Defeat him to earn eternal glory! Good luck!"
+Totems - each monster has unique Totem, which can be dropped after their death. By picking up unique Totems,
+	you will be able to activate more altars at the same time. There are 5 Totems in total. Earn them all to eternal glory! Good luck!"
 vertical_alignment = 1
 
 [node name="CloseStoryButton" type="Button" parent="StoryPanel" unique_id=442667551]
@@ -164,7 +160,7 @@ theme_override_font_sizes/font_size = 25
 text = "Controls:
 
 WSAD - movement
-E - interact (activate altar, trade in village)
+E - interact (activate altar, trade with merchant)
 Space - attack"
 vertical_alignment = 1
 

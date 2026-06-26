@@ -21,7 +21,8 @@ var is_player_in_attack_range: bool = false
 @export_range(0.0, 1.0) var relic_drop_chance: float = 0.10
 @export_range(0.0, 1.0) var totem_drop_chance: float = 0.05
 @export var my_totem_name: String = "Ice" # Nazwa totemu przypisana do tego moba
-
+@export var money_bag_scene: PackedScene = preload("res://scenes/items/coins_bag.tscn")
+@export_range(0.0, 1.0) var moneybag_drop_chance: float = 0.10
 # Ścieżki do scen przedmiotów, które mają się pojawić na ziemi
 # Upewnij się, że ścieżka do Twojej apteczki/monety jest poprawna, lub podmień je na dedykowane sceny Relicu/Totemu
 @export var relic_scene: PackedScene = preload("res://scenes/items/relic.tscn")
@@ -82,33 +83,36 @@ func check_drops() -> void:
 	if randf() <= relic_drop_chance:
 		if relic_scene:
 			var spawned_relic = relic_scene.instantiate() as Node2D
-			# Ustawiamy pozycję przedmiotu dokładnie tam, gdzie stał potwór
 			spawned_relic.global_position = global_position
-			# Dodajemy przedmiot do głównego drzewa gry (obok potwora, a nie wewnątrz niego)
 			get_parent().add_child(spawned_relic)
 
 	# 2. LOSOWANIE TOTEMU
-	# Ponieważ totemy są unikalne i od razu lądują w ekwipunku/UI, 
-	# możemy je przyznać graczowi bezpośrednio przez GameManager bez rzucania na ziemię!
 	if randf() <= totem_drop_chance:
 		var game_manager = get_tree().get_first_node_in_group("game_manager")
 		if game_manager and game_manager.has_method("add_totem"):
 			game_manager.add_totem(my_totem_name)
+	
+	# 3. LOSOWANIE MONEYBAG
+	if randf() <= moneybag_drop_chance:
+		if money_bag_scene:
+			var spawned_bag = money_bag_scene.instantiate() as Node2D
+			spawned_bag.global_position = global_position
+			get_parent().add_child(spawned_bag)
 
 # Wykrycie, że gracz podszedł pod cios
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		is_player_in_attack_range = true
-		# Zadaj cios natychmiast przy podejściu
-		hit_player()
-		# Uruchom odliczanie kolejnych ciosów
-		attack_timer.start(attack_speed)
+		
+		if is_inside_tree() and attack_timer and attack_timer.is_stopped():
+			attack_timer.start(attack_speed)
 
 # Wykrycie, że gracz uciekł ze strefy ciosu
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		is_player_in_attack_range = false
-		attack_timer.stop() # Przestań odliczać czas ataku
+		if attack_timer:
+			attack_timer.stop()
 
 # Funkcja wykonująca uderzenie w gracza
 func hit_player() -> void:
@@ -118,4 +122,10 @@ func hit_player() -> void:
 # Wywoływane co X sekund przez Timer, jeśli gracz ciągle stoi obok moba
 func _on_attack_timer_timeout() -> void:
 	if is_player_in_attack_range:
-		hit_player()
+		hit_player() # Potwór zadaje obrażenia dopiero TERAZ!
+		
+		if is_inside_tree() and attack_timer:
+			attack_timer.start(attack_speed)
+	else:
+		if attack_timer:
+			attack_timer.stop()

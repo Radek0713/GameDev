@@ -14,8 +14,9 @@ var max_sword_level = 5
 var active_buffs_list: Array = [] 
 var available_altars = 0 # Max limit ołtarzy na raz (zaczynamy od 0, max 3)
 
-
 var collected_totems: Array = [] 
+
+var heal_time: float = 2 # Czas leczenia
 
 func _ready() -> void:
 	update_altars_ui()
@@ -23,7 +24,12 @@ func _ready() -> void:
 
 func add_coin(n):
 	coins += n
-	coins_label.text = "Coins: " + str(coins)
+	update_coins_ui()
+
+func update_coins_ui():
+	if coins_label:
+		coins_label.text = "Coins: " + str(coins)
+
 	
 func medic_collected() -> void:
 	var player = get_tree().get_first_node_in_group("player")
@@ -42,7 +48,7 @@ func activate_altar(buff_type: int):
 		# Wyłączamy efekty dezaktywowanego ołtarza
 		match buff_type:
 			0:
-				pass # Tutaj wpisz swój kod na wyłączenie szybkości, jeśli go używasz
+				deactivate_speed_altar()
 			1:
 				deactivate_hp_altar()
 			2:
@@ -79,7 +85,7 @@ func activate_altar(buff_type: int):
 	get_tree().call_group("altars", "update_visuals")
 
 func add_totem(totem_name: String):
-	
+	#print("Added Totem")
 	var lower_totem_name = totem_name.to_lower()
 	if collected_totems.has(lower_totem_name):
 		return
@@ -97,7 +103,6 @@ func add_totem(totem_name: String):
 			if totem_node.name.to_lower() == node_on_name.to_lower():
 				totem_node.show()
 	
-	
 	if collected_totems.size() == 2:
 		available_altars = 1
 	elif collected_totems.size() == 3:
@@ -106,6 +111,18 @@ func add_totem(totem_name: String):
 		available_altars = 3
 		
 	update_altars_ui()
+	
+	# --- NOWOŚĆ: SPRAWDZENIE WARUNKU PRZYWOŁANIA BOSSA ---
+	if collected_totems.size() >= 5:
+		trigger_boss_spawn()
+
+func trigger_boss_spawn() -> void:
+	#print("GM: Zebrano 5 totemów! Próba przebudzenia bossa...")
+	var boss = get_tree().get_first_node_in_group("boss")
+	if boss and boss.has_method("awaken_boss"):
+		boss.awaken_boss()
+	#else:
+		#print("GM BŁĄD: Nie znaleziono bossa w grupie 'boss' lub brakuje mu metody 'awaken_boss'!")
 
 # Pomocnicza funkcja do odświeżania tekstu UI ołtarzy
 func update_altars_ui():
@@ -130,12 +147,12 @@ func update_relics_ui() -> void:
 func activate_speed_altar() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player and "SPEED" in player:
-		player.SPEED += 100.0
+		player.SPEED += 50.0
 
 func deactivate_speed_altar() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player and "SPEED" in player:
-		player.SPEED -= 100.0
+		player.SPEED -= 50.0
 
 # --- LOGIKA OŁTARZA DAMAGE ---
 func activate_damage_altar() -> void:
@@ -151,21 +168,58 @@ func deactivate_damage_altar() -> void:
 
 # --- LOGIKA OŁTARZA HP ---
 func activate_hp_altar() -> void:
+	print("--- GM: Próba aktywacji ołtarza HP ---")
+	
 	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.max_hp = 14
-		player.current_hp += 4
+	
+	if player == null:
+		print("--- GM BŁĄD: Nie znaleziono obiektu w grupie 'player'! Sprawdź grupy gracza! ---")
+		return
 		
-		if player.has_method("update_hearts_ui"):
-			player.update_hearts_ui()
-
+	print("--- GM: Znaleziono gracza! Stare max_hp = ", player.max_hp, " | Stare current_hp = ", player.current_hp)
+	
+	player.max_hp = 14
+	player.current_hp = clampi(player.current_hp + 4, 0, 14)
+	
+	print("--- GM: Zmieniono w pamięci! Nowe max_hp = ", player.max_hp, " | Nowe current_hp = ", player.current_hp)
+	
+	if player.has_method("update_hearts_ui"):
+		print("--- GM: Wywołuję update_hearts_ui() u gracza ---")
+		player.update_hearts_ui()
+	else:
+		print("--- GM BŁĄD: Gracz nie ma funkcji 'update_hearts_ui'! ---")
 func deactivate_hp_altar() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.max_hp = 10
-		# Jeśli gracz miał powyżej 10 HP, ścinamy mu zdrowie do nowego maksa
 		if player.current_hp > 10:
 			player.current_hp = 10
 			
 		if player.has_method("update_hearts_ui"):
 			player.update_hearts_ui()
+		#print("GM: Wyłączono ołtarz HP. Gracz Max HP = ", player.max_hp)
+
+func try_upgrade_sword() -> void:
+	# 1. Sprawdzamy, czy miecz ma już maksymalny poziom
+	if sword_level >= max_sword_level:
+		#print("Miecz ma już maksymalny poziom!")
+		return
+		
+	# 2. Sprawdzamy warunek finansowy (min 5 monet i 2 relikwie)
+	if coins >= 10 and relics >= 2:
+		coins -= 10
+		relics -= 2
+		
+		update_coins_ui()
+		update_relics_ui()
+		#update_sword_ui() jednak nie robimy tej funkcji
+		
+		# Zwiększamy poziom miecza i odświeżamy jego napis na UI
+		sword_level += 1
+		sword_label.text = "Sword: " + str(sword_level) + "/" + str(max_sword_level)
+		
+		# 3. Zwiększamy obrażenia gracza
+		var player = get_tree().get_first_node_in_group("player")
+		if player and "attack_damage" in player:
+			player.attack_damage += 5
+			

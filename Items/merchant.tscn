@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bjxnd5wqnvggb"]
+
+[ext_resource type="Script" uid="uid://dbe6x2t410q56" path="res://Items/merchant.gd" id="1_2xiuy"]
+[ext_resource type="Texture2D" uid="uid://b453epw6tjfxt" path="res://Items/SpriteSheet.png" id="1_f8nbg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1qrp"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_come4"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8e4i"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lmeg"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cp0l"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2t1y"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gngh3"]
+atlas = ExtResource("1_f8nbg")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0n3wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1qrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_come4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8e4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lmeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cp0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2t1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gngh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnost"]
+radius = 28.01785
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xiuy"]
+size = Vector2(15, 16)
+
+[node name="Merchant" type="Area2D" unique_id=690967570]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_2xiuy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1467968814]
+sprite_frames = SubResource("SpriteFrames_0n3wm")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=73452744]
+shape = SubResource("CircleShape2D_qnost")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=94976070]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=32191534]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_2xiuy")
