@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED: float = 180.0 # Wpisz tutaj swoją domyślną prędkość bazową
+var SPEED: float = 280.0 # Wpisz tutaj swoją domyślną prędkość bazową
 var max_hp = 10
 var current_hp = 10
 var attack_damage = 21

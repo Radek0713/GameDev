@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c05fr75ald3qg"]
+
+[ext_resource type="Script" uid="uid://x42kjqyphmjl" path="res://scenes/win_screen.gd" id="1_erk2x"]
+[ext_resource type="Texture2D" uid="uid://dajh4r8jkgtid" path="res://TileSets/background_win.jpg" id="2_erk2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwo6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyutr"]
+bg_color = Color(0.6, 0.6, 0.6, 0.42745098)
+
+[node name="WinScreen" type="Control" unique_id=457194912]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_erk2x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=83030699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_erk2x")
+
+[node name="WinLabel" type="Label" parent="." unique_id=27260095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.5
+offset_top = -240.0
+offset_right = 450.5
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "YOU WON!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=883936975]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.5
+offset_top = 10.0
+offset_right = 329.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dwo6e")
+text = "You defeated the boss and achieved glory! Congrats!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=1418011436]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -380.0
+offset_right = 300.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="MainMenuButton" type="Button" parent="ButtonsContainer" unique_id=569795582]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyutr")
+text = "Main menu"
+
+[node name="ExitButton" type="Button" parent="ButtonsContainer" unique_id=2061749982]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyutr")
+text = "Exit"

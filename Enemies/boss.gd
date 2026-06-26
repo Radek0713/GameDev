@@ -4,24 +4,40 @@ extends BaseEnemy
 var is_awakened: bool = false
 
 func _ready() -> void:
-	# Wywołujemy _ready() z klasy BaseEnemy, aby podłączyć sygnały i timery
 	super()
 	
-	# POTĘŻNE STATYSTYKI BOSSA
-	SPEED = 20.0             # Boss jest wolniejszy, ale groźniejszy
-	AGGRO_RANGE = 300.0      # Widzi gracza z bardzo daleka
-	max_hp = 500             # Ogromny pasek zdrowia
+	SPEED = 40.0             
+	AGGRO_RANGE = 300.0      
+	max_hp = 100             
 	current_hp = max_hp
-	damage = 4               # Zabiera aż 3 HP jednym ciosem
-	attack_speed = 2       # Atakuje rzadziej, ale potężnie
+	damage = 4               
+	attack_speed = 2       
 	
-	
-	# Na starcie wyłączamy proces fizyki, żeby boss nie gonił gracza będąc niewidzialnym
 	set_physics_process(false)
+	
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	# Wyłącza kolizję strefy ataku, żeby boss nie bił gracza będąc ukrytym
+	if has_node("AttackArea/CollisionShape2D"):
+		$AttackArea/CollisionShape2D.set_deferred("disabled", true)
 
 # Nowa funkcja wywoływana przez GameManager, gdy gracz zbierze 5 totemów
 func awaken_boss() -> void:
 	is_awakened = true
-	show() # Pokazujemy bossa na mapie
-	set_physics_process(true) # Włączamy mu sztuczną inteligencję (AI) i ruch
-	#print("BOSS SIĘ OBUDZIŁ!")
+	show() # Pokazujemy bossa wizualnie
+	set_physics_process(true) # Włączamy mu ruch i AI
+	
+	$CollisionShape2D.set_deferred("disabled", false)
+	
+	if has_node("AttackArea/CollisionShape2D"):
+		$AttackArea/CollisionShape2D.set_deferred("disabled", false)
+
+# Nadpisujemy funkcję take_damage z klasy BaseEnemy, żeby sprawdzić specyficzny warunek śmierci bossa
+func take_damage(amount: int) -> void:
+	current_hp -= amount
+	if current_hp <= 0:
+		show_win_screen()
+		queue_free()
+
+func show_win_screen() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/win_screen.tscn")

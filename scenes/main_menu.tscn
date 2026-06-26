@@ -114,8 +114,9 @@ Altars - there are 3 in the world, each with unique buff: speed, damage or HP.
 
 Relics - used to upgrade your sword. In your starting village, you can upgrade your sword by paying 2 Relics and 10 coins to the merchant.
 
-Totems - each monster has unique Totem, which can be dropped after their death. By picking up unique Totems,
-	you will be able to activate more altars at the same time. There are 5 Totems in total. Earn them all to eternal glory! Good luck!"
+Totems - each monster has unique Totem, which can be dropped after their death.
+	By picking up unique Totems, you will be able to activate more altars at the same time.
+	If you collect all 5 Totem, final boss will be spawned. Defeat him to earn eternal glory! Good luck!"
 vertical_alignment = 1
 
 [node name="CloseStoryButton" type="Button" parent="StoryPanel" unique_id=442667551]
